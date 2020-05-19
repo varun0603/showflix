@@ -1,7 +1,7 @@
 {
   "name": "showflix",
   "private": true,
-  "description": "A simple app for browsing movies",
+  "description": "A simple app for browsing",
   "version": "0.1.0",
   "author": "varun, keshav",
   "dependencies": {
@@ -36,9 +36,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/varun0603/showflix"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/varun0603/showflix/issues"
   }
 }
