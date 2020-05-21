@@ -4,6 +4,7 @@ import { fetchMovies } from "../redux/ActionCreators";
 import HomeComponent from "./HomeComponent";
 import HeaderComponent from "./HeaderComponent";
 import { Redirect, Route, Switch, withRouter } from "react-router-dom";
+import MovieDetail from "./MovieDetail";
 
 const mapStateToProps = (state) => {
   return {
@@ -28,6 +29,7 @@ class Main extends Component {
         <HeaderComponent movies={this.props.movies} />
         <Switch>
           <Route path='/home' component={() => <HomeComponent movies={this.props.movies} />} />
+          <Route path='/home/:movieid' component={MovieDetail} />
           <Redirect to='/home' />
         </Switch>
       </>

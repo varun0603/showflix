@@ -1,5 +1,15 @@
 import React from "react";
-import { LinearProgress, Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button, makeStyles } from '@material-ui/core'
+import { 
+  LinearProgress,
+  Card, 
+  CardActionArea, 
+  CardMedia, 
+  CardContent, 
+  Typography, 
+  CardActions, 
+  Button, 
+  makeStyles 
+} from '@material-ui/core'
 
 const useStyles = makeStyles({
   root: {
