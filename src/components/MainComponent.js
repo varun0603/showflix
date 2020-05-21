@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchMovies } from "../redux/ActionCreators";
 import HomeComponent from "./HomeComponent";
+import HeaderComponent from "./HeaderComponent";
+import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 
 const mapStateToProps = (state) => {
   return {
@@ -22,11 +24,15 @@ class Main extends Component {
 
   render() {
     return (
-    <>
-      <HomeComponent movies={this.props.movies}/>
-    </>
+      <>
+        <HeaderComponent movies={this.props.movies} />
+        <Switch>
+          <Route path='/home' component={() => <HomeComponent movies={this.props.movies} />} />
+          <Redirect to='/home' />
+        </Switch>
+      </>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
