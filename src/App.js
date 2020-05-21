@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Main from "./MainComponent";
+import Main from "./components/MainComponent";
 import "./App.css";
 import { Provider } from "react-redux";
 import { ConfigureStore } from "./redux/configureStore";

@@ -18,7 +18,6 @@ const mapDispatchToProps = (dispatch) => ({
 class Main extends Component {
   componentDidMount() {
     this.props.fetchMovies();
-    console.log(this.props.movies);
   }
 
   render() {
