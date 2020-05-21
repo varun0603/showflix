@@ -1,4 +1,4 @@
-import { ActionTypes } from "./ActionTypes";
+import  * as ActionTypes  from "./ActionTypes";
 import { baseUrl } from "./baseUrl";
 
 export const moviesLoading = () => ({
@@ -15,7 +15,7 @@ export const addMovies = (movies) => ({
   payload: movies,
 });
 
-export const fetchDishes = () => (dispatch) => {
+export const fetchMovies = () => (dispatch) => {
   dispatch(moviesLoading(true));
 
   return fetch(baseUrl + "list_movies.json")

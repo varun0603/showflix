@@ -10,11 +10,11 @@ export const Movies = (
         ...state,
         isLoading: false,
         errMess: null,
-        dishes: action.payload,
+        movies: action.payload,
       };
 
     case ActionTypes.MOVIES_LOADING:
-      return { ...state, isLoading: true, errMess: null, dishes: [] };
+      return { ...state, isLoading: true, errMess: null, movies: [] };
 
     case ActionTypes.MOVIES_FAILED:
       return { ...state, isLoading: false, errMess: action.payload };
