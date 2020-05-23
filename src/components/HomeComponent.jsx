@@ -11,14 +11,27 @@ import {
 } from '@material-ui/core'
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
+import IconButton from "@material-ui/core/IconButton";
+import imdb from '../icons/imdb.svg'
+import tomato from '../icons/tomato.svg'
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import {Tooltip} from "@material-ui/core";
 
+const useStyles = makeStyles({
+    icon_size: {
+        width: 50,
+        height: 30,
+    }
+});
 const HomeComponent = ({movies}) => {
+    const classes = useStyles();
     if (movies.errMess) {
         return <h1>{movies.errMess}</h1>
     }
     if (movies.isLoading) {
         return (
-            <div className="mt-4">
+            <div>
                 <LinearProgress/>
             </div>
         )
@@ -26,7 +39,7 @@ const HomeComponent = ({movies}) => {
     console.log(movies.movies.data.movies);
     const moviesView = movies.movies.data.movies.map(movie => {
         return (
-            <Box style={{maxWidth: "350px"}} p={1} key={movie.id}>
+            <Box style={{width: "350px"}} p={1} key={movie.id}>
                 <Card>
                     <CardActionArea>
                         <CardMedia
@@ -35,21 +48,23 @@ const HomeComponent = ({movies}) => {
                             image={movie.medium_cover_image}
                             title="Contemplative Reptile"/>
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                {movie.title}
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                {movie.description_full.substring(0, 100) + "..."}
+                            <Typography>
+                                {movie.title_long}
                             </Typography>
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                        </Button>
+                        <Tooltip title={movie.rating + '/10'}>
+                            <IconButton aria-label="add to favorites">
+                                <img className={classes.icon_size} src={imdb} alt=""/>
+                            </IconButton>
+                        </Tooltip>
+                        <IconButton aria-label="add to favorites">
+                            <YouTubeIcon fontSize="large"/>
+                        </IconButton>
+                        <IconButton aria-label="add to favorites">
+                            <img className={classes.icon_size} src={tomato} alt=""/>
+                        </IconButton>
                     </CardActions>
                 </Card>
             </Box>

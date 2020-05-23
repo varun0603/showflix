@@ -68,8 +68,8 @@ function HeaderComponent() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="fixed">
-                <Toolbar >
+            <AppBar position="sticky">
+                <Toolbar>
                     <IconButton
                         edge="start"
                         className={classes.menuButton}
